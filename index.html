@@ -48,10 +48,7 @@
         </header>
         <div id="content" class="mui-content mui-content-padded">
             <div class="mui-text-left" v-for="item in list">
-                {{item.title}}
-                <span>
-                    {{item.value}}
-                </span>
+                {{item}}
             </div>
         </div>
 
@@ -65,6 +62,7 @@
                 
             })
             mui.plusReady(function() {
+				console.log('哈哈');
                 //获取系统名称
                 var name = plus.os.name;
                 VM.list.push({
@@ -114,25 +112,15 @@
                     "title": "网络类型",
                     "value": network
                 })
-                //获取设备的唯一标示
+				
                 plus.device.getInfo({
-                    success: function(e) {
-                        VM.list.push({
-                            "title": "国际移动设备身份码imei",
-                            "value": e.imei
-                        })
-                        VM.list.push({
-                            "title": "国际移动用户识别码imsi",
-                            "value": e.imsi
-                        })
-                        VM.list.push({
-                            "title": "设备的唯一标识",
-                            "value": e.uuid
-                        })
-                    },
-                    fail: function(e) {
-                        console.log('getDeviceInfo failed: ' + JSON.stringify(e));
-                    }
+                		success:function(e){
+                			console.log('getDeviceInfo success: '+JSON.stringify(e));
+                		},
+                		fail:function(e){
+                			console.log('getDeviceInfo failed: '+JSON.stringify(e));
+                		}
+                	});
                 });
                 //获取APP版本信息
                 plus.runtime.getProperty(plus.runtime.appid, function(inf) {
@@ -147,9 +135,7 @@
                     })
                     console.log(JSON.stringify(inf))
                 })
-                
-                
-            });
+               
             //获取IP地址信息
             function addScriptTag(src) {
                 var script = document.createElement('script');
@@ -159,6 +145,7 @@
             }
             
             function foo(data) {
+				console.log(data);
                 var json = data.data[0];
                 
                 VM.list.push({
@@ -172,9 +159,9 @@
                 console.log("IPInfo:"+ JSON.stringify(json));
             };
             window.onload = function() {
-                addScriptTag(
-                    'https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=ip&co=&resource_id=6006&t=1562124098965&ie=utf8&oe=gbk&cb=foo&format=json&tn=baidu'
-                );
+                // addScriptTag(
+                //     'https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=ip&co=&resource_id=6006&t=1562124098965&ie=utf8&oe=gbk&cb=foo&format=json&tn=baidu'
+                // );
             }
         </script>
     </body>
