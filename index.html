@@ -1,49 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <link href="../../css/mui.min.css" rel="stylesheet" />
-        <script src="../../js/mui.js"></script>
-        <script src="../../js/vue.js"></script>
-        <style>
-            body{max-width: 750px; min-width: 320px; margin: 0 auto; background-color: #F5F5F5;overflow-x: hidden;
-                font-family: -apple-system,Helvetica,sans-serif;}
-            div{font-size: .26rem; color: #474747;line-height: 2;}
-            span{font-size: .28rem; color: #D1021F;}
-        </style>
-        <script>
-            (function(doc, win) {
-                var w = document.documentElement.clientWidth;
-                if (w > 750) {
-                    w = 750
-                } else if (w < 320) {
-                    w = 320
-                }
-                var f = w / 750 * 100 + "px";
-                document.documentElement.style.fontSize = f;
-                var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function() {
-                        var clientWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
-                        if (clientWidth > 750) {
-                            clientWidth = 750
-                        } else if (clientWidth < 320) {
-                            clientWidth = 320
-                        }
-                        if (!clientWidth) return;
-                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-                    };
-            
-                if (!doc.addEventListener) return;
-                win.addEventListener(resizeEvt, recalc, false);
-                doc.addEventListener('DOMContentLoaded', recalc, false);
-            })(document, window);
-        </script>
-    </head>
-
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<style>
+	    body{max-width: 750px; min-width: 320px; margin: 0 auto; background-color: #F5F5F5;overflow-x: hidden;
+	        font-family: -apple-system,Helvetica,sans-serif;}
+	    div{font-size: .26rem; color: #474747;line-height: 2;}
+	    span{font-size: .28rem; color: #D1021F;}
+	</style>
+    <script>
+        (function(doc, win) {
+            var w = document.documentElement.clientWidth;
+            if (w > 750) {
+                w = 750
+            } else if (w < 320) {
+                w = 320
+            }
+            var f = w / 750 * 100 + "px";
+            document.documentElement.style.fontSize = f;
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
+                    if (clientWidth > 750) {
+                        clientWidth = 750
+                    } else if (clientWidth < 320) {
+                        clientWidth = 320
+                    }
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                };
+        
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
         <header class="mui-bar mui-bar-nav">
             <h1 class="mui-title">我的手机信息</h1>
         </header>
